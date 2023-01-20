@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import topics from "./topics";
+import Topics from "../constants/topics";
 
 const Main = () => {
   const [getTopic, setGetTopic] = useState("Tap the button. Get a topic.");
 
-  const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+  const randomTopic = Topics[Math.floor(Math.random() * Topics.length)];
 
   useEffect(() => {
     getTopic;

@@ -1,4 +1,4 @@
-const topics = [
+const Topics = [
   "If you could bring back any show/series for one more season, what would it be?",
   "Do you think you should have to clear purchases with your significant other?",
   "Is it okay to keep financial secrets from your partner?",
@@ -18,4 +18,4 @@ const topics = [
   "Thoughts on male birth control?",
 ];
 
-export default topics;
+export default Topics;

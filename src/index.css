@@ -1,0 +1,13 @@
+@import "https://fonts.googleapis.com/css?family=Libre+Franklin:500,900";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  box-sizing: border-box;
+  font-family: "Libre Franklin", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

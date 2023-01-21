@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 const port = process.env.PORT || 5000;
 dotenv.config();
 
+import Topic from "../models/topicModel";
+
 mongoose.set("strictQuery", false);
 
 app.use(express.json());

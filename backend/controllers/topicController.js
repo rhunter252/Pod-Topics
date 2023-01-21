@@ -1,4 +1,12 @@
-import express from "express";
-const router = express.Router();
+import asyncHandler from "express-async-handler";
 
-import Topics from "../models/topicModel";
+import Topic from "../models/topicModel";
+
+// @desc Get Topics
+// @route GET /api/Topics
+// @access Private
+const getTopics = asyncHandler(async (req, res) => {
+  const topics = await Topic.find({ user: req.user.id });
+
+  res.status(200).json(topics);
+});

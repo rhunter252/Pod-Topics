@@ -1,17 +1,26 @@
 import { useState, useEffect } from "react";
 import Topics from "../constants/topics";
+import { client } from "../lib/client";
 
 const Main = () => {
   const [getTopic, setGetTopic] = useState("Tap the button. Get a topic.");
+  const [tops, setTops] = useState([]);
 
-  const randomTopic = Topics[Math.floor(Math.random() * Topics.length)];
-
-  useEffect(() => {
-    getTopic;
-  }, []);
+  const randomTopic = tops[Math.floor(Math.random() * tops.length)];
 
   const handleClick = () => {
-    setGetTopic(randomTopic);
+    client
+      .fetch(
+        `*[_type == "topics"]{
+      title,
+      description}`
+      )
+      .then((data) => {
+        setTops(data);
+        setGetTopic(data[Math.floor(Math.random() * data.length)].description);
+        console.log(data[Math.floor(Math.random() * data.length)].description);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (

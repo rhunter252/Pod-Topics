@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="block p-6 rounded-lg shadow-lg bg-blue-500 w-full ">
+    <footer id="footer" className="block p-6 bg-amber-500 w-full ">
       <div className="mx-auto max-w-3xl">
         <p className="text-lg">Have an idea for a interesting topic?</p>
         <form className="flex flex-col pt-4" ref={form} onSubmit={sendEmail}>
@@ -47,7 +47,7 @@ const Footer = () => {
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        focus:text-gray-700 focus:bg-white focus:border-slate-600 focus:outline-none"
             name="message"
           />
           <div className="pt-4">
@@ -93,7 +93,7 @@ const Footer = () => {
             className="w-24 mx-auto my-4
             px-6
             py-2.5
-            bg-blue-600
+            bg-slate-900
             text-white
             font-medium
             text-xs
@@ -101,9 +101,9 @@ const Footer = () => {
             uppercase
             rounded
             shadow-md
-            hover:bg-blue-700 hover:shadow-lg
-            focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-            active:bg-blue-800 active:shadow-lg
+            hover:bg-slate-700 hover:shadow-lg
+            focus:bg-slate-700 focus:shadow-lg focus:outline-none focus:ring-0
+            active:bg-slate-800 active:shadow-lg
             transition
             duration-150
             ease-in-out"
@@ -114,7 +114,7 @@ const Footer = () => {
           </button>
         </form>
       </div>
-      <div className="text-center text-amber-400 mt-4">
+      <div className="text-center text-slate-900 mt-4">
         &copy; {new Date().getFullYear()} Pod Topics. All rights reserved.
       </div>
     </footer>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { client } from "../lib/client";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import Info from "./Info";
 
 const Main = () => {
   const [getTopic, setGetTopic] = useState("Tap the button. Get a topic.");

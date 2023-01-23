@@ -34,7 +34,7 @@ const Main = () => {
           </button>
           <a
             href="#footer"
-            className="text-amber-400 text-center m-0 hover:underline-offset-auto	"
+            className="text-amber-400 text-center m-0 hover:underline"
           >
             Submit a topic
           </a>

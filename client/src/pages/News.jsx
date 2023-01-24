@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { format } from "date-fns";
 
 const News = () => {
   const [articles, setArticles] = useState([]);
@@ -16,16 +17,37 @@ const News = () => {
   }, []);
 
   return (
-    <div>
-      {articles.map((article) => {
-        return (
-          <div>
-            <h3>{article.title}</h3>
-            <img src={article.urlToImage} alt="" />
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <h1 className="text-3xl lg:text-5xl font-bold text-center my-16">News</h1>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto px-5 mb-10">
+        {articles.slice(0, 20).map((article) => {
+          return (
+            <a href={article.url} key={article.url} target="_blank">
+              <article className="border border-slate-600 dark:border-slate-200 rounded-lg overflow-hidden hover:text-white hover:bg-slate-800 transition-all duration-200 cursor-pointer">
+                {article.urlToImage && (
+                  <img
+                    src={article.urlToImage}
+                    className="rounded-t-lg md:h-64 w-full object-cover"
+                    alt="news article"
+                    loading="lazy"
+                  />
+                )}
+                <div className="p-4">
+                  <p className="text-sm">
+                    By {article.author} &middot;{" "}
+                    {format(new Date(article.publishedAt), "dd MMMM yyyy")}
+                  </p>{" "}
+                  <h2 className="text-xl my-2">{article.title}</h2>
+                  <p className="text-sm leading-relaxed">
+                    {`${article.description.substring(0, 100)}...`}
+                  </p>
+                </div>
+              </article>
+            </a>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

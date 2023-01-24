@@ -12,8 +12,8 @@ const Header = () => {
           </span>
         </h1>
       </Link>
-      <div className="grid justify-end">
-        <Link className="text-amber-400 justify-self-end" to="/news">
+      <div className="ml-auto">
+        <Link className="text-amber-400" to="/news">
           News
         </Link>
       </div>

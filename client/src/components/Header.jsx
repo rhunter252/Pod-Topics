@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMicrophoneAlt } from "react-icons/fa";
 
 const Header = () => {
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
+
   return (
     <div className="p-4 bg-slate-900 flex place-content-center items-center">
       <Link to="/">
@@ -12,12 +15,12 @@ const Header = () => {
           </span>
         </h1>
       </Link>
-      <div className="ml-auto">
+      <div className="absolute right-6">
         <Link className="text-amber-400" to="/news">
           Trending News
         </Link>
-        <Link className="text-amber-400 mx-4" to="/reddit">
-          Reddit
+        <Link className="text-amber-400 mx-6" to="/reddit">
+          AskReddit
         </Link>
       </div>
     </div>

@@ -21,7 +21,7 @@ const Reddit = () => {
   return (
     <div>
       <h1 className="text-3xl lg:text-5xl font-bold text-center my-16">
-        Reddit
+        AskReddit
       </h1>
       <div className="grid grid-cols-1 gap-8 max-w-7xl mx-auto px-5 mb-10">
         {trends.data &&
@@ -30,7 +30,7 @@ const Reddit = () => {
             <a key={trend.data.id} href={trend.data.url} target="_blank">
               <article className="border-2 border-slate-600 dark:border-slate-200 rounded-lg overflow-hidden hover:text-amber-400 hover:bg-slate-800 transition-all duration-200 cursor-pointer p-4">
                 <div className="p-4">
-                  <h2 className="text-xl my-2">{trend.data.title}</h2>
+                  <h2 className="text-xl font-bold my-2">{trend.data.title}</h2>
                   <p className="text-sm leading-relaxed">
                     {trend.data.num_comments.toLocaleString("en-US")} comments
                   </p>

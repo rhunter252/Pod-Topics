@@ -7,11 +7,9 @@ const News = () => {
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await axios.get(
-        "https://newsapi.org/v2/everything?q=football&apiKey=6d4784e157f14617aa8e6dbf63a07e1e"
-      );
+      const response = await axios.get(`${import.meta.env.VITE_API_KEY}`);
       setArticles(response.data.articles);
-      console.log(response);
+      // console.log(response);
     };
     getArticles();
   }, []);
@@ -20,7 +18,7 @@ const News = () => {
     <>
       <h1 className="text-3xl lg:text-5xl font-bold text-center my-16">News</h1>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto px-5 mb-10">
-        {articles.slice(0, 20).map((article) => {
+        {articles.slice(0, 25).map((article) => {
           return (
             <a href={article.url} key={article.url} target="_blank">
               <article className="border border-slate-600 dark:border-slate-200 rounded-lg overflow-hidden hover:text-white hover:bg-slate-800 transition-all duration-200 cursor-pointer">
@@ -39,7 +37,7 @@ const News = () => {
                   </p>{" "}
                   <h2 className="text-xl my-2">{article.title}</h2>
                   <p className="text-sm leading-relaxed">
-                    {`${article.description.substring(0, 100)}...`}
+                    {`${article.description}`}
                   </p>
                 </div>
               </article>

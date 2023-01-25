@@ -14,7 +14,10 @@ const Header = () => {
       </Link>
       <div className="ml-auto">
         <Link className="text-amber-400" to="/news">
-          News
+          Trending News
+        </Link>
+        <Link className="text-amber-400 mx-4" to="/reddit">
+          Reddit
         </Link>
       </div>
     </div>

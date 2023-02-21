@@ -3,8 +3,6 @@ import axios from "axios";
 
 const Reddit = () => {
   const [trends, setTrends] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTrends = async () => {

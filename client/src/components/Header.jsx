@@ -7,14 +7,16 @@ const Header = () => {
 
   return (
     <nav className="flex items-center justify-between flex-wrap bg-slate-900 p-6">
-      <Link to="/">
-        <h1 className="flex">
-          <span className="flex text-2xl font-bold text-white">
-            Pod <FaMicrophoneAlt className="text-3xl text-amber-400" />
-            Topics
-          </span>
-        </h1>
-      </Link>
+      <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <Link to="/">
+          <h1>
+            <span className="flex text-2xl font-bold text-white">
+              Pod <FaMicrophoneAlt className="text-3xl text-amber-400" />
+              Topics
+            </span>
+          </h1>
+        </Link>
+      </div>
       <div className="block lg:hidden">
         <button
           className="flex items-center px-3 py-2 border rounded text-gray-300 border-gray-400 hover:text-white hover:border-white"
@@ -35,19 +37,30 @@ const Header = () => {
           isMenuOpen ? "block" : "hidden"
         } w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
       >
-        <div className="text-md lg:flex-grow flex justify-center">
-          <Link
-            className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
-            to="/news"
-          >
-            Trending News
-          </Link>
-          <Link
-            className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
-            to="/reddit"
-          >
-            AskReddit
-          </Link>
+        <div className="text-md flex md:flex md:flex-grow flex-row justify-end space-x-1">
+          <div className="flex flex-col lg:flex-row">
+            <Link
+              className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
+              to="/news"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              Trending News
+            </Link>
+            <Link
+              className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
+              to="/reddit"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              AskReddit
+            </Link>
+            <Link
+              className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
+              to="/login"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              Login
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

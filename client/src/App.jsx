@@ -5,6 +5,8 @@ import Info from "./components/Info";
 import Home from "./components/Home";
 import News from "./pages/News";
 import Reddit from "./pages/Reddit";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/news" element={<News />}></Route>
             <Route path="/reddit" element={<Reddit />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
           </Routes>
           <Footer />
         </div>

@@ -21,7 +21,7 @@ const Main = () => {
   };
 
   return (
-    <div className="bg-slate-900 h-screen">
+    <div className="bg-slate-900 min-h-screen">
       <div className="container mx-auto grid h-screen place-items-center">
         <h2 className="text-4xl lg:text-4xl px-4 text-center  text-white leading-normal">
           {getTopic}
@@ -42,6 +42,7 @@ const Main = () => {
         </div>
         <BsChevronDoubleDown className="animate-bounce text-amber-400 text-3xl mb-4" />
       </div>
+      <Info />
     </div>
   );
 };

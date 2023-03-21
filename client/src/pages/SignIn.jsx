@@ -15,7 +15,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate.push("/"); // Redirect the user to the home page
+        navigate("/"); // Redirect the user to the home page
       })
       .catch((error) => {
         console.log(error);

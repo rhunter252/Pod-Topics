@@ -7,22 +7,22 @@ import News from "./pages/News";
 import Reddit from "./pages/Reddit";
 import SignIn from "./pages/SignIn";
 import Signup from "./pages/Signup";
-import AuthDetails from "./components/AuthDetails";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="flex flex-col h-screen justify-between">
+        <div className="flex flex-col min-h-screen justify-between">
           <Header />
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/news" element={<News />}></Route>
-            <Route path="/reddit" element={<Reddit />}></Route>
-            <Route path="/login" element={<SignIn />}></Route>
-            <Route path="/signup" element={<Signup />}></Route>
-          </Routes>
-          <AuthDetails />
+          <main className="">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/reddit" element={<Reddit />} />
+              <Route path="/login" element={<SignIn />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </main>
           <Footer />
         </div>
       </BrowserRouter>

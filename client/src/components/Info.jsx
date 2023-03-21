@@ -2,30 +2,39 @@ import React from "react";
 
 const Info = () => {
   return (
-    <div className="bg-slate-900 ">
-      <div className="text-amber-400 max-w-3xl sm:max-w-xl mx-auto">
-        <h3 className="text-4xl text-white">What is this?</h3>
-        <p className="mb-4 text-2xl">
-          Pod Topics spits out ideas for creative podcast topics. Want to spice
-          up your podcast? Tap 🪄 the magic button and – poof! ✨ – you've got a
-          topic.
+    <div className="bg-slate-900 pb-2">
+      <div className="mx-auto w-4/5 lg:w-1/2 leading-8 mb-24">
+        <p className="text-white text-3xl whitespace-normal">
+          Looking to start a podcast but don't know where to begin? Say hello to{" "}
+          <span className="text-amber-400 font-bold">Pod Topicz</span>! Our
+          innovative platform is designed to provide you with a plethora of
+          podcast topic ideas at the click of a button. With{" "}
+          <span className="text-amber-400 font-bold">Pod Topicz</span>, you'll
+          never have to worry about running out of ideas or getting stuck in a
+          creative rut again.
         </p>
-        <h3 className="text-4xl text-white">Ok, but why?</h3>
-        <p className="mb-4 text-2xl">
-          Yeah, kinda niche, right? When I first started my design career, my
-          biggest hurdle was deciding what to design. I wanted to create this
-          little generator as a way for fellow designers to quickly find some
-          inspiration and just do the damn thing.
+        <br />
+        <p className="text-white text-3xl whitespace-normal">
+          Our magical "poof" button will conjure up an endless array of
+          fascinating and thought-provoking topics that will leave your
+          listeners begging for more. So why wait? Give{" "}
+          <span className="text-amber-400 font-bold">Pod Topicz</span> a try and
+          take your podcast to the next level!
         </p>
-        <h3 className="text-4xl text-white">Wait - who are you?</h3>
-        <p className="mb-24 text-2xl">
-          I built the original Briefz.biz in 2016 on Github Pages, and didn't
-          think much of it after I put it out into the world. Little did I know,
-          years later, it would be featured in blog posts, tweets, and TikToks.
-          It's been incredible to see people create work based on these briefs.
-          I finally decided to move Briefz over to Webflow, where it's easier
-          for me to maintain and add new briefs and features. So stay tuned,
-          more to come!
+        <br />
+        <p className="text-white text-3xl whitespace-normal mb-4">
+          With <span className="text-amber-400 font-bold">Pod Topicz</span>, the
+          possibilities are endless. Whether you're looking to start a new
+          podcast or freshen up your existing one, our platform is here to help.
+          Our algorithm is designed to cater to a wide range of interests and
+          niches, so you're sure to find something that suits your style. Plus,
+          our easy-to-use interface makes it simple to explore new topics and
+          get inspired. With{" "}
+          <span className="text-amber-400 font-bold">Pod Topicz</span> by your
+          side, you'll have the tools you need to create engaging content that
+          will keep your listeners coming back for more. So what are you waiting
+          for? Sign up today and unlock the full potential of your podcasting
+          journey!
         </p>
       </div>
     </div>

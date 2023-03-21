@@ -115,7 +115,7 @@ const Footer = () => {
         </form>
       </div>
       <div className="text-center text-slate-900 mt-4">
-        &copy; {new Date().getFullYear()} Pod Topics. All rights reserved.
+        &copy; {new Date().getFullYear()} Pod Topicz. All rights reserved.
       </div>
     </footer>
   );

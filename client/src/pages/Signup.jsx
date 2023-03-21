@@ -18,7 +18,7 @@ const Signup = () => {
         .then((userCredential) => {
           setErrorMessage("Thank you for signing up");
           console.log(userCredential);
-          navigate.push("/");
+          navigate("/");
         })
         .catch((error) => {
           console.log(error);

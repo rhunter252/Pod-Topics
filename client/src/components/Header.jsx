@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMicrophoneAlt } from "react-icons/fa";
+import { auth } from "../firebase";
+import AuthDetails from "./AuthDetails";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const user = auth.currentUser;
+
+  const isLoggedIn = !!auth.user;
 
   return (
     <nav className="flex items-center justify-between flex-wrap bg-slate-900 p-6">
@@ -53,13 +58,17 @@ const Header = () => {
             >
               AskReddit
             </Link>
-            <Link
-              className="block mt-4 lg:inline-block lg:mt-0 bg-amber-400 text-slate-900  hover:text-white text-center font-bold rounded-lg mr-4 px-2"
-              to="/login"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              Login
-            </Link>
+            {isLoggedIn ? (
+              <Link
+                className="block mt-4 lg:inline-block lg:mt-0 bg-amber-400 text-slate-900  hover:text-white text-center font-bold rounded-lg mr-4 px-2"
+                to="/login"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                Login
+              </Link>
+            ) : (
+              <AuthDetails />
+            )}
           </div>
         </div>
       </div>

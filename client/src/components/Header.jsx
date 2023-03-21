@@ -54,7 +54,7 @@ const Header = () => {
               AskReddit
             </Link>
             <Link
-              className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
+              className="block mt-4 lg:inline-block lg:mt-0 bg-amber-400 text-slate-900  hover:text-white text-center font-bold rounded-lg mr-4 px-2"
               to="/login"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >

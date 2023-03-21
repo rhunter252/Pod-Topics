@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer id="footer" className="block p-6 bg-amber-500 w-full ">
+    <footer id="footer" className="block p-6 bg-amber-400 w-full ">
       <div className="mx-auto max-w-3xl">
         <p className="text-lg">Have an idea for a interesting topic?</p>
         <form className="flex flex-col pt-4" ref={form} onSubmit={sendEmail}>

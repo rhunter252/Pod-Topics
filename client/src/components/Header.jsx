@@ -46,6 +46,13 @@ const Header = () => {
           <div className="flex flex-col lg:flex-row">
             <Link
               className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
+              to="/"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              Home
+            </Link>
+            <Link
+              className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
               to="/news"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -67,7 +74,16 @@ const Header = () => {
                 Login
               </Link>
             ) : (
-              <AuthDetails />
+              <>
+                <Link
+                  className="block mt-4 lg:inline-block lg:mt-0 text-amber-400  hover:text-white mr-4"
+                  to="/favorites"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                  Favorites
+                </Link>
+                <AuthDetails />
+              </>
             )}
           </div>
         </div>

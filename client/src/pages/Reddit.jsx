@@ -10,7 +10,6 @@ const Reddit = () => {
         "https://www.reddit.com/r/askreddit/hot.json"
       );
       setTrends(response.data);
-      console.log(trends.data);
     };
 
     fetchTrends();

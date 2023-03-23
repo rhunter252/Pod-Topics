@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import loginImg from "../assets/podcast.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +23,7 @@ const Login = () => {
 
   return (
     <div className="grid grid-cols-1 h-screen w-full">
-      <div className="bg-slate-900 flex flex-col justify-center">
+      <div className="bg-slate-900 flex flex-col justify-center px-4">
         <form
           onSubmit={signIn}
           className="max-w-[400px] w-full mx-auto bg-slate-800 p-8 px-8 rounded-lg"

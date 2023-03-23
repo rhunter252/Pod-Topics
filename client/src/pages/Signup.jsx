@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -13,7 +13,7 @@ const Signup = () => {
 
   const signUp = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+    if (password === confirmPassword && password.length >= 6) {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           setErrorMessage("Thank you for signing up");
@@ -24,14 +24,18 @@ const Signup = () => {
           console.log(error);
         });
     } else {
-      setErrorMessage("Passwords do not match");
-      console.log("Password and confirm password do not match");
+      if (password.length < 6) {
+        setErrorMessage("Password must be at least 6 characters long");
+      } else {
+        setErrorMessage("Passwords do not match");
+      }
+      console.log("Password validation failed");
     }
   };
 
   return (
     <div className="grid grid-cols-1 h-screen w-full">
-      <div className="bg-slate-900 flex flex-col justify-center">
+      <div className="bg-slate-900 flex flex-col justify-center px-4">
         <form
           className="max-w-[400px] w-full mx-auto bg-slate-800 p-8 px-8 rounded-lg my-16"
           onSubmit={signUp}

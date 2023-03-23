@@ -10,6 +10,9 @@ export default defineConfig({
   projectId: 'wpjdxhmj',
   dataset: 'production',
 
+  token:
+    'skNFXVgpAURUItLXa67e94gfKsBwUr43FIjMEVe8m8IQphkJ80Btw7TEZ6iGFg95ixfYLXnlAFWuBrKFUwFTvqs4eAe18bBzXwOXf0CtzXtWVWdCoQMftZYkcV1DqHXole0mOFyA4Fo9rWVGGirtKJFYEv78lFlWw1Z1gcX2Uw237HYugRJx',
+
   plugins: [deskTool(), visionTool()],
 
   schema: {

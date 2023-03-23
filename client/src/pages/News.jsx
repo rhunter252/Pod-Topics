@@ -7,7 +7,9 @@ const News = () => {
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await axios.get(`${import.meta.env.VITE_API_KEY}`);
+      const response = await axios.get(
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=6d4784e157f14617aa8e6dbf63a07e1e`
+      );
       setArticles(response.data.articles);
       // console.log(response);
     };
@@ -21,11 +23,11 @@ const News = () => {
         {articles.slice(0, 25).map((article) => {
           return (
             <a href={article.url} key={article.url} target="_blank">
-              <article className="border border-slate-600 dark:border-slate-200 rounded-lg overflow-hidden hover:text-white hover:bg-slate-800 transition-all duration-200 cursor-pointer">
+              <article className="border border-slate-600 dark:border-slate-200 rounded-lg overflow-hidden hover:text-white hover:bg-slate-800 transition-all duration-200 cursor-pointer h-full">
                 {article.urlToImage && (
                   <img
                     src={article.urlToImage}
-                    className="rounded-t-lg md:h-64 w-full object-cover"
+                    className="rounded-t-lg h-52 md:h-64 w-full object-cover object-center"
                     alt="news article"
                     loading="lazy"
                   />

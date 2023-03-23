@@ -1,11 +1,25 @@
 import { useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { client } from "../lib/client";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import Info from "./Info";
+import { auth } from "../firebase";
 
 const Main = () => {
   const [getTopic, setGetTopic] = useState("Tap the button. Get a topic.");
-  const [tops, setTops] = useState([]);
+  const [topics, setTopics] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const handleClick = () => {
     client
@@ -14,10 +28,35 @@ const Main = () => {
       description}`
       )
       .then((data) => {
-        setTops(data);
+        setTopics(data);
         setGetTopic(data[Math.floor(Math.random() * data.length)].description);
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleAddToFavorites = async () => {
+    if (!user) {
+      alert("Please sign in to add to favorites!");
+      return;
+    }
+
+    const favorite = {
+      _type: "favorites",
+      user: {
+        _type: "reference",
+        _ref: user.uid, // assuming that the UID is the ID of the user document in Sanity.io
+      },
+      topics: topics.map((topic) => ({
+        _type: "reference",
+        _ref: topic._id, // assuming that the _id is the ID of the topic document in Sanity.io
+      })),
+    };
+
+    client.create(favorite).then((createdFavorite) => {
+      setFavorites([...favorites, createdFavorite]);
+      alert("Added to favorites!");
+    });
+    console.log(client.config());
   };
 
   return (
@@ -32,6 +71,12 @@ const Main = () => {
             onClick={handleClick}
           >
             Get a Topic
+          </button>
+          <button
+            className="text-slate-900 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 font-medium rounded-full text-lg px-8 py-2 text-center mb-6"
+            onClick={handleAddToFavorites}
+          >
+            Add to Favorites
           </button>
           <a
             href="#footer"

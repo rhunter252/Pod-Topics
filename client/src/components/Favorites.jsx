@@ -17,14 +17,14 @@ const Favorites = ({ favorites }) => {
   return (
     <div>
       <div className="flex justify-center text-2xl md:text-3xl pb-20">
-        <h1 className="uppercase font-bold text-neutral-100">Favorites List</h1>
+        <h1 className="uppercase font-bold text-neutral-50">Favorites List</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {favorites.map((favorite, i) => {
           return (
             <div className="block max-w-sm rounded-lg p-6 shadow-lg bg-slate-900">
               <h5 className="mb-4 text-xl font-medium leading-tight text-neutral-50">
-                {favorite}
+                {favorite.description}
               </h5>
               <button
                 type="button"

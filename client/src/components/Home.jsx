@@ -7,7 +7,7 @@ import Info from "./Info";
 import Favorites from "./Favorites";
 import { auth, db } from "../firebase";
 import { uid } from "uid";
-import { getDatabase, onValue, ref, set } from "firebase/database";
+import { getDatabase, onValue, ref, set, off, get } from "firebase/database";
 
 const Main = () => {
   const [getTopic, setGetTopic] = useState("Tap the button. Get a topic.");
@@ -28,16 +28,28 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    onValue(ref(db), (snapshot) => {
-      setFavorites([]);
-      const data = snapshot.val();
-      if (data !== null) {
-        Object.values(data).map((favorites) => {
-          setFavorites((oldArray) => [...oldArray, favorites]);
+    if (user) {
+      const userFavoritesRef = ref(db, "users/" + user.uid + "/favorites");
+      const handleFavoritesUpdate = (snapshot) => {
+        const data = snapshot.val();
+        if (data !== null) {
+          const favoritesArray = Object.entries(data).map(([key, value]) => ({
+            id: key,
+            description: value.description,
+          }));
+          setFavorites(favoritesArray);
+        } else {
+          setFavorites([]);
+        }
+      };
+
+      get(userFavoritesRef)
+        .then(handleFavoritesUpdate)
+        .catch((error) => {
+          console.error("Error fetching favorites data:", error);
         });
-      }
-    });
-  }, []);
+    }
+  }, [user]);
 
   const handleClick = () => {
     client
@@ -59,11 +71,14 @@ const Main = () => {
       return;
     }
 
-    // Get a reference to the user's favorites in the database
-    const userFavoritesRef = ref(db, "users/" + user.uid + "/favorites");
-
     // Generate a unique ID for the new favorite
     const newFavoriteKey = uid();
+
+    // Get a reference to the user's favorites in the database
+    const userFavoritesRef = ref(
+      db,
+      "users/" + user.uid + "/favorites/" + newFavoriteKey
+    );
 
     // Create a new favorite object
     const newFavorite = {
@@ -72,7 +87,7 @@ const Main = () => {
     };
 
     // Add the new favorite to the user's favorites
-    set(userFavoritesRef, { newFavoriteKey, newFavorite })
+    set(userFavoritesRef, newFavorite)
       .then(() => {
         alert("Topic added to favorites!");
       })
@@ -111,7 +126,12 @@ const Main = () => {
         </div>
         <BsChevronDoubleDown className="animate-bounce text-amber-400 text-3xl mb-4" />
       </div>
-      <Favorites favorites={favorites} />
+      <Favorites
+        favorites={favorites}
+        user={user}
+        db={db}
+        setFavorites={setFavorites}
+      />
       <Info />
     </div>
   );

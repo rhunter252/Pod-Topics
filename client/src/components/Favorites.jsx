@@ -1,18 +1,30 @@
 import { useState } from "react";
+import { ref, remove } from "firebase/database";
 
-const Favorites = ({ favorites }) => {
+const Favorites = ({ favorites, user, db, setFavorites }) => {
   console.log(favorites);
 
-  // useEffect(() => {
-  //   onValue(ref(db), (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (data !== null) {
-  //       Object.values(data).map((favorites) => {
-  //         setFavorites(oldArray => [...oldArray, favorites])
-  //       });
-  //     }
-  //   });
-  // }, []);
+  const handleRemoveFavorite = (id) => {
+    // Check if the user is logged in
+    if (!user) {
+      alert("You must be logged in to remove a favorite.");
+      return;
+    }
+
+    // Get a reference to the user's favorites in the database
+    const userFavoritesRef = ref(db, "users/" + user.uid + "/favorites/" + id);
+
+    // Remove the favorite with the given ID
+    remove(userFavoritesRef)
+      .then(() => {
+        alert("Favorite removed!");
+        setFavorites(favorites.filter((favorite) => favorite.id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Error removing favorite.");
+      });
+  };
 
   return (
     <div>
@@ -22,7 +34,10 @@ const Favorites = ({ favorites }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {favorites.map((favorite, i) => {
           return (
-            <div className="block max-w-sm rounded-lg p-6 shadow-lg bg-slate-900">
+            <div
+              key={favorite.id}
+              className="block max-w-sm rounded-lg p-6 shadow-lg bg-slate-800"
+            >
               <h5 className="mb-4 text-xl font-medium leading-tight text-neutral-50">
                 {favorite.description}
               </h5>

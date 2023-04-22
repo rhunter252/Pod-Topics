@@ -3,7 +3,7 @@ import React from "react";
 const Info = () => {
   return (
     <div className="bg-slate-900 pb-2 mt-16 border-t-2">
-      <div className="mx-auto w-4/5 lg:w-1/2 leading-8 mt-12 mb-24">
+      <div className="mx-auto w-4/5 lg:w-1/2 leading-8 mt-24 mb-24">
         <p className="text-white text-3xl whitespace-normal">
           Looking to start a podcast but don't know where to begin? Say hello to{" "}
           <span className="text-amber-400 font-bold">Pod Topicz</span>! Our

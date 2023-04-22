@@ -21,6 +21,12 @@ const Login = () => {
       });
   };
 
+  const handleBypassLogin = (e) => {
+    e.preventDefault();
+    setEmail("test@test.com");
+    setPassword("123456");
+  };
+
   return (
     <div className="grid grid-cols-1 h-screen w-full">
       <div className="bg-slate-900 flex flex-col justify-center px-4">
@@ -60,6 +66,12 @@ const Login = () => {
             type="submit"
           >
             Sign In
+          </button>
+          <button
+            className="w-full p-2 mt-2 bg-amber-400 rounded-md"
+            onClick={handleBypassLogin}
+          >
+            Test Login for recruiters
           </button>
           <div className="text-center text-gray-400 mt-6">
             <Link to="/signup" className="hover:text-amber-400">

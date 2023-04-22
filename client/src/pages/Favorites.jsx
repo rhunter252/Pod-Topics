@@ -3,17 +3,6 @@ import { useState } from "react";
 const Favorites = ({ favorites }) => {
   console.log(favorites);
 
-  // useEffect(() => {
-  //   onValue(ref(db), (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (data !== null) {
-  //       Object.values(data).map((favorites) => {
-  //         setFavorites(oldArray => [...oldArray, favorites])
-  //       });
-  //     }
-  //   });
-  // }, []);
-
   return (
     <div>
       <div className="flex justify-center text-2xl md:text-3xl pb-20">

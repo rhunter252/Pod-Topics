@@ -36,7 +36,7 @@ const Favorites = ({ favorites, user, db, setFavorites }) => {
           return (
             <div
               key={favorite.id}
-              className="block max-w-sm rounded-lg p-6 shadow-lg bg-slate-800"
+              className="block max-w-sm rounded-lg p-6 shadow-lg bg-slate-800 mx-16"
             >
               <h5 className="mb-4 text-xl font-medium leading-tight text-neutral-50">
                 {favorite.description}

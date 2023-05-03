@@ -22,10 +22,6 @@ function App() {
               <Route path="/" element={<Home favorites={favorites} />} />
               <Route path="/news" element={<News />} />
               <Route path="/reddit" element={<Reddit />} />
-              {/* <Route
-                path="/favorites"
-                element={<Favorites favorites={favorites} />}
-              /> */}
               <Route path="/login" element={<SignIn />} />
               <Route path="/signup" element={<Signup />} />
             </Routes>

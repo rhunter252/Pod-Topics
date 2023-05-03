@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "sanity dev",
     "start": "npx sanity start",
-    "build": "npm ci && npx sanity build",
+    "build": "sanity build dist -c static.config.js",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Favorites from "./pages/Favorites";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import News from "./pages/News";
 import Reddit from "./pages/Reddit";
 import SignIn from "./pages/SignIn";
@@ -31,6 +31,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <ScrollToTopButton />
         </div>
       </BrowserRouter>
     </>

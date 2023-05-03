@@ -23,7 +23,7 @@ const News = () => {
         {articles.slice(0, 25).map((article) => {
           return (
             <a href={article.url} key={article.url} target="_blank">
-              <article className="border border-slate-600 dark:border-slate-200 rounded-lg overflow-hidden hover:text-white hover:bg-slate-800 transition-all duration-200 cursor-pointer h-full">
+              <article className="border border-slate-600 rounded-lg overflow-hidden hover:text-white hover:bg-slate-800 transition-all duration-200 cursor-pointer h-full">
                 {article.urlToImage && (
                   <img
                     src={article.urlToImage}

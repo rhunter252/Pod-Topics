@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js"
   },
